@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="sber-account-ui:war">
-    <output-path>$PROJECT_DIR$/sber-account-ui/target</output-path>
-    <root id="archive" name="sber-account-ui.war">
-      <element id="artifact" artifact-name="sber-account-ui:war exploded" />
-    </root>
-  </artifact>
-</component>

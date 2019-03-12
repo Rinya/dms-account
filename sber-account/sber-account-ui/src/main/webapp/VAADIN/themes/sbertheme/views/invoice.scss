@@ -1,0 +1,87 @@
+@mixin invoice {
+  .invoice-grid {
+    background-color: $dms-table-background-color;
+
+    .v-grid-tablewrapper {
+      border: none;
+    }
+
+    .v-grid-header {
+      th {
+        background-color: $dms-table-background-color;
+        padding: $dms-table-row-padding;
+
+        .v-grid-column-resize-handle {
+          display: none;
+        }
+      }
+      .v-grid-cell {
+        background-color: $dms-table-background-color;
+        background-image: none;
+        border-left: none;
+      }
+
+      .v-grid-cell.frozen {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-right-color: $v-app-background-color;
+        /*border-bottom-color: $dms-fields-border;*/
+      }
+    }
+
+    .v-grid-header-deco {
+      background-color: $dms-table-background-color;
+      background-image: none;
+      border: none;
+    }
+
+    .v-grid-scroller-vertical {
+      border: none;
+      border-bottom-color: $v-app-background-color;
+    }
+
+    .v-grid-scroller-horizontal {
+      border-color: $v-app-background-color;
+      background-color: $v-app-background-color;
+    }
+
+    .v-grid-horizontal-scrollbar-deco {
+      background-color: $v-app-background-color;
+      background-image: none;
+      border: none;
+    }
+
+    .v-grid-row {
+      td {
+        border-left: none;
+        background-color: $dms-table-background-color;
+        padding: $dms-table-row-padding;
+      }
+
+      .v-grid-cell.frozen {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-right-color: $v-app-background-color;
+        /*border-bottom-color: $dms-fields-border;*/
+      }
+    }
+
+    .v-grid-row-selected {
+      > .v-grid-cell {
+        background-color: $v-app-background-color;
+        background-image: none;
+        color: inherit;
+        text-shadow: none;
+        border-bottom-color: $dms-fields-border;
+      }
+    }
+
+    .v-grid-row-stripe {
+      background-color: $dms-table-background-color;
+    }
+
+    .v-grid-cell-focused:before {
+      border: none;
+    }
+  }
+}

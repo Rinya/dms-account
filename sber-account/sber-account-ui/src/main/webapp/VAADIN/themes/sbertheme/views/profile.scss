@@ -1,0 +1,11 @@
+@mixin profile {
+  .profile-form {
+    .v-formlayout-error-indicator {
+      width: 40px;
+    }
+
+    .v-label {
+      font-size: 13px;
+    }
+  }
+}

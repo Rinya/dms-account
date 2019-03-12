@@ -1,0 +1,32 @@
+@mixin board-menu {
+  .board-menu {
+    min-width: 100px;
+
+     .v-icon {
+	    color: #ce253d;
+     }
+
+    &[height-range~="1px-"] {
+      .info-layout {
+        min-height: 450px;
+      }
+    }
+  }
+
+  .info-label {
+    color: #289D39;
+    font-size: 16px !important;
+  }
+
+  .info-layout {
+    background: url("img/hr_girl.jpg") no-repeat;
+    -webkit-background-size: auto;
+    -moz-background-size: auto;
+    -o-background-size: auto;
+    background-size: auto;
+    padding-left: 16px;
+    padding-right: 10px;
+
+    min-height: 450px;
+  }
+}

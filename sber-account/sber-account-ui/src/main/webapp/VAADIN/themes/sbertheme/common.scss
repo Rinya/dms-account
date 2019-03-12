@@ -1,0 +1,256 @@
+@mixin common {
+  .sber-window {
+    @extend v-window-header;
+
+    .v-window-header {
+      min-height: 50px;
+      line-height: 60px;
+      vertical-align: middle;
+      font-size: 30px;
+      text-align: center;
+      text-align: -webkit-center;
+    }
+  }
+
+
+  .valo-menu {
+    border-right: none;
+
+    .badgewrapper {
+      position: relative;
+      padding: 0 !important;
+    }
+
+    .v-ddwrapper {
+      display: block;
+    }
+  }
+
+  .valo-menu-item {
+    overflow: hidden;
+    white-space: normal;
+
+    .valo-menu-item-caption {
+      display: contents !important;
+    }
+  }
+
+  .v-ui[width-range~="0-800px"] {
+    .valo-menu-title {
+      @include valo-gradient($color: $valo-menu-background-color);
+      border-bottom-color: first-color(valo-border($color: $valo-menu-background-color));
+    }
+    .valo-menu .v-menubar-user-menu {
+      color: inherit;
+    }
+  }
+
+  .v-ui[width-range~="801px-"] {
+    /*.valo-menu {
+      @include animation(valo-animate-in-slide-right 700ms 700ms backwards);
+    }*/
+
+    .valo-menu-title {
+      background: transparent;
+      @include box-shadow(none);
+      border-bottom: none;
+    }
+  }
+
+  .valo-menu-title {
+    line-height: 1.2;
+  }
+
+  .v-menubar-user-menu:after {
+    display: none;
+  }
+
+  .v-menubar-user-menu > .v-menubar-menuitem {
+    display: block;
+    padding: 0;
+    max-width: 90%;
+    margin: 0 auto;
+
+    .v-menubar-menuitem-caption:after {
+      margin-right: -1em;
+    }
+
+    img.v-icon {
+      @if is-dark-color($valo-menu-background-color) {
+        border: none;
+      }
+    }
+  }
+
+  .v-ui[width-range~="0-800px"] {
+    .v-menubar-user-menu > .v-menubar-menuitem {
+      max-width: none;
+      margin-right: .5em;
+
+      .v-menubar-menuitem-caption:after {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .valo-menu-item {
+    @include valo-menu-item-style($dms-menu-item-background-color);
+  }
+
+  .sber-grid {
+    background-color: inherit;
+
+    .v-grid-tablewrapper {
+      border: none;
+    }
+
+    .v-grid-header {
+      th {
+        background-color: $dms-table-background-color;
+        padding: $dms-table-row-padding;
+
+        .v-grid-column-resize-handle {
+          display: none;
+        }
+      }
+      .v-grid-cell {
+        background-image: none;
+        border-left: none;
+      }
+
+      .v-grid-cell.frozen {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-right-color: $v-app-background-color;
+      }
+    }
+
+    .v-grid-header-deco {
+      background-color: $dms-table-background-color;
+      background-image: none;
+      border: none;
+    }
+
+    .v-grid-scroller-vertical {
+      border: none;
+      border-bottom-color: $v-app-background-color;
+    }
+
+    .v-grid-scroller-horizontal {
+      border-color: $v-app-background-color;
+      background-color: $v-app-background-color;
+    }
+
+    .v-grid-horizontal-scrollbar-deco {
+      background-color: $v-app-background-color;
+      background-image: none;
+      border: none;
+    }
+
+    .v-grid-row {
+      border: 1px solid #d4d4d4;
+
+      td {
+        border-left: none;
+        background-color: inherit;
+        padding: 5px 25px 5px 25px;
+      }
+
+      .v-grid-cell {
+        background-color: inherit;
+      }
+
+      .v-grid-cell.frozen {
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-right-color: $v-app-background-color;
+      }
+    }
+
+    .v-grid-row-selected {
+      > .v-grid-cell {
+        background-color: inherit;
+        background-image: none;
+        color: inherit;
+        text-shadow: none;
+        border-bottom-color: $dms-fields-border;
+      }
+    }
+
+    .v-grid-row-stripe {
+      background-color: #eae7e8;
+    }
+
+    .v-grid-cell-focused:before {
+      border: none;
+    }
+  }
+
+  .view-header {
+    .v-label, .v-caption {
+      font-size: 26px;
+    }
+
+    .v-has-caption {
+      height: 42px;
+    }
+  }
+
+  .max-width-350 {
+    max-width: 350px;
+  }
+
+  .max-width-500 {
+    max-width: 500px;
+  }
+
+  .max-width-1024 {
+    max-width: 1024px;
+  }
+
+  .alfa-upload {
+    div {
+      .v-button {
+        @extend .v-button-primary;
+        text-align: center;
+        text-align: -webkit-center;
+      }
+    }
+
+    .v-caption-alfa_info_panel {
+      font-size: large;
+      color: #ce253d;
+    }
+
+    .v-horizontallayout-alfa_info_panel {
+      margin-top: 30px;
+      margin-bottom: 20px;
+      font-size: 10px;
+    }
+  }
+
+  .margin-top-40 {
+    margin-top: 40px;
+  }
+
+  .margin-top-230 {
+    margin-top: 230px;
+  }
+
+  .v-caption-block-caption {
+    font-weight: bold;
+    font-size: larger;
+  }
+
+  .in-text-link {
+    display: inline-flex;
+    height: auto;
+    padding: 0px;
+  }
+
+  .in-text-link:focus:after {
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+}

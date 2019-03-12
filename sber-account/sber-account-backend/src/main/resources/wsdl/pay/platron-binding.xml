@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jaxws:bindings xmlns:jaxws="http://java.sun.com/xml/ns/jaxws"
+				xmlns:jaxb="http://java.sun.com/xml/ns/jaxb" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+>
+
+	<jaxws:bindings node="wsdl:definitions/wsdl:types/xsd:schema">
+		<jaxb:schemaBindings>
+			<jaxb:package name="ru.alfastrah.account.sber.backend.platron" />
+		</jaxb:schemaBindings>
+	</jaxws:bindings>
+
+	<jaxws:bindings node="wsdl:definitions/wsdl:portType[@name='ElectronPay']">
+		<jaxws:package name="ru.alfastrah.account.sber.backend.platron"/>
+	</jaxws:bindings>
+
+	<jaxws:bindings node="wsdl:definitions/wsdl:service[@name='ElectronPayService']">
+		<jaxws:package name="ru.alfastrah.account.sber.backend.platron"/>
+	</jaxws:bindings>
+
+	<jaxws:bindings node="wsdl:definitions/wsdl:message">
+		<jaxws:package name="ru.alfastrah.account.sber.backend.platron"/>
+	</jaxws:bindings>
+
+</jaxws:bindings>

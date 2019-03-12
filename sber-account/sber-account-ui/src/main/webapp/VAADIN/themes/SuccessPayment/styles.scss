@@ -1,0 +1,74 @@
+@import "SuccessPayment.scss";
+
+@mixin respond-to($media) {
+  @if $media == handhelds {
+    @media only screen and (max-width: 640px) {
+      .SuccessPayment {
+        @content;
+      }
+    }
+  }
+  @else if $media == medium-screens {
+    @media only screen and (min-width: 641px) and (max-width: 1023px) {
+      .SuccessPayment {
+        @content;
+      }
+    }
+  }
+  @else if $media == wide-screens {
+    @media only screen and (min-width: 1024px) {
+      .SuccessPayment {
+        @content;
+      }
+    }
+  }
+}
+
+.SuccessPayment {
+  @include SuccessPayment;
+}
+
+@include respond-to(handhelds) {
+  .successpay-block-background {
+    font-size: 46px;
+
+    .v-caption {
+      font-size: 38px;
+    }
+
+    .thanks-label {
+      font-size: 54px;
+      word-wrap: break-word;
+      text-align: -webkit-center;
+    }
+  }
+}
+
+@include respond-to(medium-screens) {
+  .successpay-block-background {
+    font-size: 40px;
+
+    .v-caption {
+      font-size: 32px;
+      vertical-align: -webkit-baseline-middle;
+    }
+
+    .thanks-label {
+      font-size: 56px;
+      word-wrap: break-word;
+      text-align: -webkit-center;
+    }
+  }
+}
+
+@include respond-to(wide-screens) {
+  body {
+    font-size: 14px;
+  }
+
+  .successpay-block-background {
+    .thanks-label {
+      font-size: $v-font-size--large;
+    }
+  }
+}

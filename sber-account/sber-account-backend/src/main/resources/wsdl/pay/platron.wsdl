@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://alfastrah.ru/interplat4/platron/ElectronPay/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:ns1="http://alfastrah.ru/interplat4/platron/Exceptions/" name="ElectronPayService"
+                  targetNamespace="http://alfastrah.ru/interplat4/platron/ElectronPay/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://alfastrah.ru/interplat4/platron/PlatronResponse/" version="1.0">
+   <xs:element name="response">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="pg_status" type="xs:string"/>
+            <xs:element name="pg_error_code" type="xs:string"/>
+            <xs:element name="pg_error_description" type="xs:string"/>
+            <xs:element minOccurs="0" name="pg_payment_id" type="xs:int"/>
+            <xs:element name="pg_redirect_url_type" type="xs:string"/>
+            <xs:element name="pg_redirect_url" type="xs:string"/>
+            <xs:element minOccurs="0" name="pg_can_reject" type="xs:int"/>
+            <xs:element name="pg_transaction_status" type="xs:string"/>
+            <xs:element name="pg_create_date" type="xs:string"/>
+            <xs:element name="pg_result_date" type="xs:string"/>
+            <xs:element name="pg_revoke_date" type="xs:string"/>
+            <xs:element name="pg_payment_system" type="xs:string"/>
+            <xs:element name="pg_salt" type="xs:string"/>
+            <xs:element name="pg_sig" type="xs:string"/>
+            <xs:element name="xmlString" type="xs:string"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://alfastrah.ru/interplat4/platron/Exceptions/" version="1.0">
+   <xs:element name="CommonFault">
+      <xs:complexType>
+         <xs:sequence>
+            <xs:element name="error_code" type="xs:string"/>
+            <xs:element name="error_text" type="xs:string"/>
+         </xs:sequence>
+      </xs:complexType>
+   </xs:element>
+</xs:schema><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://alfastrah.ru/interplat4/platron/ElectronPay/" elementFormDefault="qualified" targetNamespace="http://alfastrah.ru/interplat4/platron/ElectronPay/" version="1.0">
+   <xs:element name="PlatronFailurePayInput" type="tns:PlatronPaymentStatus"/>
+   <xs:element name="PlatronFailurePayOutput" type="tns:PlatronFailurePayOutput"/>
+   <xs:element name="PlatronInitPaymentInput" type="tns:PlatronInitPaymentInput"/>
+   <xs:element name="PlatronInitPaymentOutput" type="tns:PlatronInitPaymentOutput"/>
+   <xs:element name="PlatronSuccessPayInput" type="tns:PlatronPaymentStatus"/>
+   <xs:element name="PlatronSuccessPayOutput" type="tns:PlatronSuccessPayOutput"/>
+   <xs:complexType name="PlatronPaymentStatus">
+      <xs:sequence>
+         <xs:element name="pg_order_id" type="xs:string"/>
+         <xs:element name="pg_payment_id" type="xs:long"/>
+         <xs:element name="pg_salt" type="xs:string"/>
+         <xs:element name="pg_sig" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PlatronSuccessPayOutput">
+      <xs:sequence>
+         <xs:element name="status" type="xs:string"/>
+         <xs:element name="description" type="xs:string"/>
+         <xs:element name="polis_url" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PlatronInitPaymentInput">
+      <xs:sequence>
+         <xs:element name="caller_code" type="xs:string"/>
+         <xs:element name="contract_id" type="xs:long"/>
+         <xs:element name="product_code" type="xs:string"/>
+         <xs:element name="pg_payment_system" type="xs:string"/>
+         <xs:element name="pg_lifetime" type="xs:int"/>
+         <xs:element name="session_id" type="xs:string"/>
+         <xs:element name="user_contact_email" type="xs:string"/>
+         <xs:element name="user_phone" type="xs:string"/>
+         <xs:element name="pg_user_ip" type="xs:string"/>
+         <xs:element name="pg_alfaclick_client_id" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PlatronInitPaymentOutput">
+      <xs:sequence>
+         <xs:element name="pg_payment_id" type="xs:int"/>
+         <xs:element name="pg_redirect_url" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="PlatronFailurePayOutput">
+      <xs:sequence>
+         <xs:element name="status" type="xs:string"/>
+         <xs:element name="description" type="xs:string"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>  </wsdl:types>
+  <wsdl:message name="FailurePaymentResponse">
+    <wsdl:part element="tns:PlatronFailurePayOutput" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="FailurePayment">
+    <wsdl:part element="tns:PlatronFailurePayInput" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CommonException">
+    <wsdl:part element="ns1:CommonFault" name="CommonException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SuccessPaymentResponse">
+    <wsdl:part element="tns:PlatronSuccessPayOutput" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SuccessPayment">
+    <wsdl:part element="tns:PlatronSuccessPayInput" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InitPaymentResponse">
+    <wsdl:part element="tns:PlatronInitPaymentOutput" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="InitPayment">
+    <wsdl:part element="tns:PlatronInitPaymentInput" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ElectronPay">
+    <wsdl:operation name="SuccessPayment">
+      <wsdl:input message="tns:SuccessPayment" name="SuccessPayment">
+    </wsdl:input>
+      <wsdl:output message="tns:SuccessPaymentResponse" name="SuccessPaymentResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CommonException" name="CommonException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="InitPayment">
+      <wsdl:input message="tns:InitPayment" name="InitPayment">
+    </wsdl:input>
+      <wsdl:output message="tns:InitPaymentResponse" name="InitPaymentResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CommonException" name="CommonException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FailurePayment">
+      <wsdl:input message="tns:FailurePayment" name="FailurePayment">
+    </wsdl:input>
+      <wsdl:output message="tns:FailurePaymentResponse" name="FailurePaymentResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:CommonException" name="CommonException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ElectronPayServiceSoapBinding" type="tns:ElectronPay">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="InitPayment">
+      <soap:operation soapAction="http://alfastrah.ru/interplat4/platron/ElectronPay/InitPayment" style="document"/>
+      <wsdl:input name="InitPayment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="InitPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonException">
+        <soap:fault name="CommonException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SuccessPayment">
+      <soap:operation soapAction="http://alfastrah.ru/interplat4/platron/ElectronPay/SuccessPayment" style="document"/>
+      <wsdl:input name="SuccessPayment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SuccessPaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonException">
+        <soap:fault name="CommonException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FailurePayment">
+      <soap:operation soapAction="http://alfastrah.ru/interplat4/platron/ElectronPay/FailurePayment" style="document"/>
+      <wsdl:input name="FailurePayment">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="FailurePaymentResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="CommonException">
+        <soap:fault name="CommonException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ElectronPayService">
+    <wsdl:port binding="tns:ElectronPayServiceSoapBinding" name="ElectronPayPort">
+      <soap:address location="http://someip:8080/cxf/ElectronPayService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

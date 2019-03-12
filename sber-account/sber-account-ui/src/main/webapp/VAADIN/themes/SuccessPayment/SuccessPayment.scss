@@ -1,0 +1,38 @@
+@import "../valo/valo.scss";
+
+@mixin SuccessPayment {
+  @include valo;
+
+  .successpay-layout-background {
+    background: url("img/success.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .successpay-block-background {
+    background-color: white;
+    border-radius: 6px;
+    padding: 40px 80px;
+    font-family: "Open Sans Semibold", "Open Sans", Arial, sans-serif;
+    /*font-size: 14px;*/
+    color: #919191;
+
+    .v-label {
+      font-weight: $v-font-weight + 400;
+    }
+
+    .thanks-label {
+      font-weight: normal;
+    }
+  }
+
+  .fault-layout-background {
+    background: url("img/fail.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+}

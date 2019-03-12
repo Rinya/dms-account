@@ -1,0 +1,111 @@
+@mixin policy {
+  .policy-card {
+      color: #474747;
+      border-radius: 4px;
+      background: white;
+      border: 1px solid #d9d9d9;
+      -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 3px rgba(0, 0, 0, 0.05);
+      padding: 21px 21px;
+      font-size: small;
+  }
+
+  .franchise-info {
+    color: #474747;
+    border-radius: 4px;
+    background-color: white;
+    border: 2px solid #ce253d;
+    padding: 21px 21px;
+    font-size: small;
+  }
+
+  .wraped-label {
+    font-size: small;
+    white-space: normal;
+  }
+
+
+  .v-label-undef-w {
+    font-size: small;
+  }
+
+
+  .policy_button {
+    text-align: center;
+
+    background: url(../img/view/pdf-gray.png) no-repeat;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+  }
+
+  .policy_button:hover, .pdf_button:hover {
+    background: url(../img/view/pdf-red.png) no-repeat;
+  }
+
+  .policy_button_disabled:hover {
+    @extend .policy_button;
+
+    background: url(../img/view/pdf-gray.png) no-repeat;
+  }
+
+  .pdf_button {
+    @extend .policy_button;
+
+    background: url(../img/view/pdf-black.png) no-repeat;
+  }
+
+  .pdf_button_disabled:hover {
+    @extend .pdf_button;
+
+    background: url(../img/view/pdf-black.png) no-repeat;
+  }
+
+  .invoice_button {
+    @extend .policy_button;
+
+    background: url(../img/view/invoice-gray.png) no-repeat;
+  }
+
+  .invoice_button:hover {
+    background: url(../img/view/invoice-red.png) no-repeat;
+  }
+
+  .invoice_button_disabled:hover {
+    @extend .policy_button;
+
+    background: url(../img/view/invoice-gray.png) no-repeat;
+  }
+
+  .close_button {
+    @extend .policy_button;
+
+    background: url(../img/view/close-gray.png) no-repeat;
+  }
+
+  .close_button:hover {
+    background: url(../img/view/close-red.png) no-repeat;
+  }
+
+  .close_button_disabled:hover {
+    @extend .policy_button;
+
+    background: url(../img/view/close-gray.png) no-repeat;
+  }
+
+  .excel_button {
+    @extend .policy_button;
+
+    background: url(../img/view/excel-gray.png) no-repeat;
+  }
+
+  .excel_button:hover {
+    background: url(../img/view/excel-red.png) no-repeat;
+  }
+
+  .excel_button_disabled:hover {
+    @extend .policy_button;
+
+    background: url(../img/view/excel-gray.png) no-repeat;
+  }
+}

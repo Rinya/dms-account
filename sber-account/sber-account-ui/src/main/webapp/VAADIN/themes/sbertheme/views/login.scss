@@ -1,0 +1,134 @@
+@mixin sber-login-view {
+
+  .loginview {
+    @include radial-gradient(circle at 50% 50%, scale-color($v-app-background-color, $lightness: -2%),
+            scale-color($v-app-background-color, $lightness: -2% - valo-gradient-opacity()),
+            $fallback: $v-app-background-color);
+    padding-top: 0 !important;
+    @include animation(valo-animate-in-fade 300ms 10ms backwards);
+
+    > .v-loading-indicator {
+      display: none !important;
+    }
+
+    /*background-image: none;*/
+    -moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.149019607843137);
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.149019607843137);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.149019607843137)
+  }
+
+  .login-view-image {
+    background: url("../img/finansist.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .login-panel {
+    @include valo-panel-style;
+    padding: round($v-unit-size / 1.5) round($v-unit-size / 1.5);
+    min-width: $v-font-size * 13;
+    max-width: 90%;
+    @include animation(valo-animate-in-slide-up 800ms 10ms backwards, valo-animate-in-fade 600ms 100ms backwards);
+
+    > .v-spacing {
+      height: round($v-unit-size / 2);
+    }
+
+    .labels {
+      display: block;
+
+      .h4 {
+        margin: 0;
+        vertical-align: baseline;
+      }
+
+      .h3 {
+        margin: 0;
+        float: right;
+      }
+    }
+
+    .fields .v-icon {
+      opacity: 0.3;
+    }
+  }
+
+  .v-ui[width-range~="0-800px"] .login-panel {
+    @include animation(animate-in-scale-up 500ms 10ms backwards, valo-animate-in-fade 300ms 100ms backwards);
+  }
+
+  .login-help {
+    margin: 0 round($v-unit-size/4) !important;
+
+    &.v-Notification-animate-in {
+      @include animation(valo-animate-in-fade 500ms 1500ms backwards);
+    }
+
+    p span {
+      // Mimic paragraphs (since notification styles are a bit limiting...)
+      display: block;
+      margin-top: .5em;
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid #888;
+      }
+    }
+  }
+
+  //Если найдется другой вариант, как сделать, переделать
+  .v-label {
+    font-size: $v-font-size--h3;
+  }
+
+  .v-button-primary {
+    border-radius: 36px;
+    font-weight: normal;
+    border: none;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .v-sber-button {
+    border-radius: 36px;
+  }
+
+  .v-bold {
+    font-weight: bold;
+  }
+
+  .v-remember-me {
+    label {
+        padding-left: 5px;
+        font-family: $v-font-family;
+        font-size: $v-font-size;
+        color: $v-focus-color;
+        vertical-align: middle;
+    }
+
+    > input:checked ~ label:after {
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid #dbdbdb;
+        font-size: 12px;
+    }
+
+    > input ~ label:after {
+        width: 20px !important;
+        height: 20px !important;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid #dbdbdb;
+        font-size: 12px;
+    }
+  }
+
+  .welcome-label {
+    color: $v-font-color;
+  }
+}

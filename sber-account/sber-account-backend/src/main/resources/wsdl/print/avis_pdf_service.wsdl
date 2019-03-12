@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?><definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://alfastrah.ru/interplat4/select/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" name="GetPdfService" targetNamespace="http://alfastrah.ru/interplat4/select/">
+  <types>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://alfastrah.ru/interplat4/select/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://alfastrah.ru/interplat4/select/">
+			
+  <xsd:element name="InPut" type="tns:InPut"/>
+			
+  <xsd:element name="OutPut" type="tns:OutPut"/>
+			
+  <xsd:element name="OutException" type="tns:OutException"/>
+			
+  <xsd:complexType name="InPut">
+				
+    <xsd:sequence>
+					
+      <xsd:element name="systemid" type="xsd:decimal"/>
+					
+      <xsd:element name="templateid" type="xsd:decimal"/>
+					
+      <xsd:element name="formatid" type="xsd:decimal"/>
+					
+      <xsd:element name="objectid" type="xsd:decimal"/>
+					
+      <xsd:element minOccurs="0" name="standartphone" type="xsd:decimal"/>
+					
+      <xsd:element default="1" minOccurs="0" name="active" type="xsd:int"/>
+				
+    </xsd:sequence>
+			
+  </xsd:complexType>
+			
+  <xsd:complexType name="OutPut">
+				
+    <xsd:sequence>
+					
+      <xsd:element minOccurs="0" name="blobpdf" type="xsd:string"/>
+				
+    </xsd:sequence>
+			
+  </xsd:complexType>
+			
+  <xsd:complexType name="OutException">
+				
+    <xsd:sequence>
+					
+      <xsd:element minOccurs="0" name="faultId" type="xsd:string"/>
+					
+      <xsd:element minOccurs="0" name="faultMessage" type="xsd:string"/>
+					
+      <xsd:element minOccurs="0" name="message" type="xsd:string"/>
+				
+    </xsd:sequence>
+			
+  </xsd:complexType>
+		
+</xsd:schema>
+  </types>
+  <message name="InPut">
+    <part element="tns:InPut" name="parameters">
+    </part>
+  </message>
+  <message name="OutPut">
+    <part element="tns:OutPut" name="parameters">
+    </part>
+  </message>
+  <message name="OutException">
+    <part element="tns:OutException" name="parameters">
+    </part>
+  </message>
+  <portType name="GetPdfPort">
+    <operation name="GetPdf">
+      <input message="tns:InPut">
+    </input>
+      <output message="tns:OutPut">
+    </output>
+      <fault message="tns:OutException" name="OutException">
+    </fault>
+    </operation>
+  </portType>
+  <binding name="GetPdfBinding" type="tns:GetPdfPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="GetPdf">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="OutException">
+        <soap:fault name="OutException" use="literal"/>
+      </fault>
+    </operation>
+  </binding>
+  <service name="GetPdfService">
+    <port binding="tns:GetPdfBinding" name="port">
+      <soap:address location="http://someip:8080/cxf/GetPdfService"/>
+    </port>
+  </service>
+</definitions>

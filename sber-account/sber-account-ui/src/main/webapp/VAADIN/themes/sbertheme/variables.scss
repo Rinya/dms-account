@@ -1,0 +1,24 @@
+//Меняем стандартные настройки
+$v-font-size: 14px;
+$v-font-family: "Noto Sans",Arial,sans-serif;
+//$v-font-family: "Open Sans Semibold", "Open Sans", Arial, sans-serif;
+$v-font-color: #777;
+
+$v-selection-color: #ce253d;
+$v-focus-color: #d02138;
+
+// Main layout padding
+$view-padding: round($v-unit-size / 1.5) !default;
+
+// Slight adjustment to menu background-color
+//$valo-menu-background-color: #414B56;
+$valo-menu-background-color: #fafafa;
+
+$v-app-background-color: #ffffff;
+
+//dms
+$dms-menu-item-background-color: #e2e2e2;
+$dms-view-title: 28px;
+$dms-table-background-color: #ffffff;
+$dms-table-row-padding: 5px 15px 5px 15px;
+$dms-fields-border: #d4d4d4;
